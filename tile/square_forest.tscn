@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://tile/Green.material" type="Material" id=1]
+[ext_resource path="res://tile/square_forest.tres" type="ArrayMesh" id=2]
+
+[node name="square_forest" type="MeshInstance"]
+mesh = ExtResource( 2 )
+material/0 = ExtResource( 1 )

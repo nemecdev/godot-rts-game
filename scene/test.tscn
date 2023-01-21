@@ -1,0 +1,138 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://tile/square_forest.tscn" type="PackedScene" id=1]
+[ext_resource path="res://script/Player/PlayerControl.gd" type="Script" id=2]
+[ext_resource path="res://model/archeryrange.tscn" type="PackedScene" id=3]
+[ext_resource path="res://model/detail_forestA.tscn" type="PackedScene" id=4]
+[ext_resource path="res://model/detail_treeA.tscn" type="PackedScene" id=5]
+[ext_resource path="res://model/detail_hill.tscn" type="PackedScene" id=6]
+[ext_resource path="res://model/detail_rocks.tscn" type="PackedScene" id=7]
+[ext_resource path="res://model/house.tscn" type="PackedScene" id=8]
+[ext_resource path="res://model/detail_treeB.tscn" type="PackedScene" id=9]
+[ext_resource path="res://model/castle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://model/lumbermill.tscn" type="PackedScene" id=11]
+[ext_resource path="res://model/farm_plot.tscn" type="PackedScene" id=12]
+[ext_resource path="res://model/forest.tscn" type="PackedScene" id=13]
+[ext_resource path="res://model/mountain.tscn" type="PackedScene" id=14]
+[ext_resource path="res://model/market.tscn" type="PackedScene" id=15]
+[ext_resource path="res://model/mill.tscn" type="PackedScene" id=16]
+[ext_resource path="res://model/detail_forestB.tscn" type="PackedScene" id=17]
+[ext_resource path="res://model/barracks.tscn" type="PackedScene" id=18]
+[ext_resource path="res://model/detail_treeC.tscn" type="PackedScene" id=19]
+[ext_resource path="res://model/wall_corner.tscn" type="PackedScene" id=20]
+[ext_resource path="res://model/wall_gate.tscn" type="PackedScene" id=21]
+[ext_resource path="res://model/mine.tscn" type="PackedScene" id=22]
+[ext_resource path="res://model/wall_gate_closed.tscn" type="PackedScene" id=23]
+[ext_resource path="res://model/wall_straight.tscn" type="PackedScene" id=24]
+[ext_resource path="res://model/wall_hexCornerB.tscn" type="PackedScene" id=25]
+[ext_resource path="res://model/wall_hexCornerA.tscn" type="PackedScene" id=26]
+[ext_resource path="res://model/watchtower.tscn" type="PackedScene" id=27]
+[ext_resource path="res://model/watermill.tscn" type="PackedScene" id=28]
+[ext_resource path="res://model/well.tscn" type="PackedScene" id=29]
+[ext_resource path="res://hud/FpsLabel.tscn" type="PackedScene" id=30]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="Main" type="Node"]
+
+[node name="Player" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10 )
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 10 )
+
+[node name="GroundBase" type="StaticBody" parent="."]
+transform = Transform( 64, 0, 0, 0, 1, 0, 0, 0, 64, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="GroundBase"]
+shape = SubResource( 1 )
+
+[node name="GreenGround" parent="GroundBase" instance=ExtResource( 1 )]
+skeleton = NodePath("../..")
+
+[node name="archeryrange" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.643175, 0, 0.765719, 0, 1, 0, -0.765719, 0, -0.643175, 0, 0.888765, -0.990093 )
+
+[node name="detail_forestA" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.615774, 0.992309, -2.463 )
+
+[node name="detail_hill" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57427, 1.0002, -1.41258 )
+
+[node name="detail_rocks" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.967084, 1.00019, 0.612372 )
+
+[node name="detail_treeA" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37894, 1.0002, 0.00896811 )
+
+[node name="detail_treeB" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54645, 1.0002, -0.352894 )
+
+[node name="detail_treeC" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64697, 1.0002, -1.65039 )
+
+[node name="farm_plot" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.45153, 1.0002, -2.55219 )
+
+[node name="forest" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69118, 1.0002, -4.34606 )
+
+[node name="castle" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61124, 1.0002, -5.57666 )
+
+[node name="barracks" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.968175, 1.00019, -4.05179 )
+
+[node name="detail_forestB" parent="." instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.08865, 1.00021, -4.58416 )
+
+[node name="house" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.76655, 1.00019, -2.46899 )
+
+[node name="lumbermill" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.76714, 1.00011, -2.19488 )
+
+[node name="market" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87618, 1.00016, 0.856913 )
+
+[node name="mill" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52286, 1.00011, 1.23437 )
+
+[node name="mine" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07, 1.00017, -0.0932415 )
+
+[node name="mountain" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.74183, 1.00016, 2.52563 )
+
+[node name="wall_corner" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192118, 1.00016, 3.15501 )
+
+[node name="wall_gate" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9856, 1.00016, 3.13244 )
+
+[node name="wall_gate_closed" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.21889, 1.00012, 3.12117 )
+
+[node name="wall_hexCornerA" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47957, 1.00013, 1.52982 )
+
+[node name="wall_hexCornerB" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05869, 1.00007, 5.31367 )
+
+[node name="wall_straight" parent="." instance=ExtResource( 24 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84496, 1.00007, 5.19577 )
+
+[node name="watchtower" parent="." instance=ExtResource( 27 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.76668, 1.00007, 5.35863 )
+
+[node name="watermill" parent="." instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.84717, 1.53087, -2.31816 )
+
+[node name="well" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.77615, 1.00004, 0.563097 )
+
+[node name="FpsLabel" parent="." instance=ExtResource( 30 )]
